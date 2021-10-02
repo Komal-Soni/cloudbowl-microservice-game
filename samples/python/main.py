@@ -29,6 +29,15 @@ def move():
     request.get_data()
     logger.info(request.json)
     while True:
+        for i in range(10000):
+            moves['R']
+            moves['T']
+            moves['L']
+            moves['T']
+            moves['F']
+            moves['T']
+    return moves['T']
+    '''while True:
         if x==0:
             return moves['R','F','T']
         if y=0:
@@ -51,7 +60,7 @@ def move():
         
         #return moves['T']
 
-    #return moves[random.randrange(len(moves))]
+    #return moves[random.randrange(len(moves))]'''
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
