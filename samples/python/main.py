@@ -25,195 +25,30 @@ app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
 
 @app.route("/", methods=['POST'])
-'''def move():
+def move():
     request.get_data()
-    logger.info(request.json)'''
-    '''if logger not in range(4):
-        while True:
-            moves['F']
-    if (direction=="N") and (logger in range(4)):
-        if logger.x > x and logger.y = y:
+    l=logger.info(request.json)
+    while True:
+        if direction = "N":
+            while (abs(x-l.x)<5 and (y==l.y)):
             moves['T']
-        elif logger.x =x and logger.y>y:
-            moves['R']
+        
+        if direction = "S":
+            while (abs(x-l.x)<5 and (y==l.y)):
             moves['T']
-        elif logger.x =x and logger.y<y:
-            moves['L']
+        
+        if direction = "W":
+            while (abs(y-l.y)<5 and (x==l.x)):
             moves['T']
-        elif logger.x <x and logger.y=y:
-            moves['R']
-            moves['R']
+        
+        if direction = "E":
+            while (abs(y-l.y)<5 and (x==l.x)):
             moves['T']
+    
         else:
             moves[random.randrange(len(moves))]
-            moves['T']
-    else:
-        moves['F']
-        moves['T']
-    if (direction=="S") and (logger in range(4)):
-        if logger.x > x and logger.y = y:
-            moves['L']
-            moves['L']
-            moves['T']
-        elif logger.x =x and logger.y>y:
-            moves['R']
-            moves['T']
-        elif logger.x =x and logger.y<y:
-            moves['L']
-            moves['T']
-        elif logger.x < x and logger.y=y:
-            moves['T']
-        else:
-            moves[random.randrange(len(moves))]
-            moves['T']
-    else:
-        moves['F']
-        MOVES['T']
-    if (direction=="E") and (logger in range(4)):
-        if logger.x > x and logger.y = y:
-            moves['L']
-            moves['T']
-        elif logger.x =x and logger.y>y:
-            moves['T']
-        elif logger.x =x and logger.y<y:
-            moves['L']
-            moves['L']
-            moves['T']
-        elif logger.x < x and logger.y=y:
-            moves['L']
-            moves['T']
-        else:
-            moves[random.randrange(len(moves))]
-            moves['T']
-    else:
-        moves['F']
-        moves['T']
-    if (direction=="W") and (logger in range(4)):
-        if logger.x > x and logger.y = y:
-            moves['R']
-            moves['T']
-        elif logger.x =x and logger.y>y:
-            moves['R']
-            moves['R']
-            moves['T']
-        elif logger.x =x and logger.y<y:
-            moves['T']
-        elif logger.x < x and logger.y=y:
-            moves['R']
-            moves['T']
-        else:
-            moves[random.randrange(len(moves))]
-            moves['T']
-    else:
-        moves['F']
-        moves['T']
-    return moves[random.randrange(len(moves))]'''
-def move(self, direction):
-    request.get_data()
-    logger.info(request.json)
-    #This function is how a character moves around in a certain direction
-    while logger in range(5):    
-        if direction == "N":
-            if self.CollisionCheck("N") == False:
-                
-                if logger.x > x and logger.y = y:
-                    moves['T']
-                elif logger.x =x and logger.y>y:
-                    moves['R']
-                    moves['T']
-                elif logger.x =x and logger.y<y:
-                    moves['L']
-                    moves['T']
-                elif logger.x <x and logger.y=y:
-                    moves['R']
-                    moves['R']
-                    moves['T']
-                else:
-                    moves[random.randrange(len(moves))]
-                    moves['T']
-            else:
-                    moves['F']
-                    moves['T']
-        elif direction == "W":
-            if self.CollisionCheck("W") == False:
-                if logger.x > x and logger.y = y:
-                    moves['R']
-                    moves['T']
-                elif logger.x =x and logger.y>y:
-                    moves['R']
-                    moves['R']
-                    moves['T']
-                elif logger.x =x and logger.y<y:
-                    moves['T']
-                elif logger.x < x and logger.y=y:
-                    moves['R']
-                    moves['T']
-                else:
-                    moves[random.randrange(len(moves))]
-                    moves['T']
-            else:
-                moves['F']
-                moves['T']
-                    
-
-        elif direction == "E":
-            if self.CollisionCheck("E") == False:
-                if logger.x > x and logger.y = y:
-                    moves['L']
-                    moves['T']
-                elif logger.x =x and logger.y>y:
-                    moves['T']
-                elif logger.x =x and logger.y<y:
-                    moves['L']
-                    moves['L']
-                    moves['T']
-                elif logger.x < x and logger.y=y:
-                    moves['L']
-                    moves['T']
-                else:
-                    moves[random.randrange(len(moves))]
-                    moves['T']
-            else:
-                moves['F']
-                moves['T']
-                         
-
-        elif direction == "S":
-            if self.CollisionCheck("S") == False:
-                if logger.x > x and logger.y = y:
-                    moves['L']
-                    moves['L']
-                    moves['T']
-                elif logger.x =x and logger.y>y:
-                    moves['R']
-                    moves['T']
-                elif logger.x =x and logger.y<y:
-                    moves['L']
-                    moves['T']
-                elif logger.x < x and logger.y=y:
-                    moves['T']
-                else:
-                    moves[random.randrange(len(moves))]
-                    moves['T']
-              else:
-                moves['F']
-                moves['T']
-                       
-    def CollisionCheck(self, direction):       #Checks if anything is on top of the grass in the direction that the character wants to move. Used in the move function
-        if direction == "N":
-            if x < 0:
-                return True
-        elif direction == "W":
-            if y > 0:
-                return True
-        elif direction == "E":
-            if y < dims[-1]:
-                return True
-        elif direction == "S":
-            if x< dims[0] > 1:
-                return True
-        return False
-   
+        
+        
     '''
     {
   "_links": {
