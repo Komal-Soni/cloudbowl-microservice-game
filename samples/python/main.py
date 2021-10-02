@@ -17,7 +17,7 @@ def move(self):
     x=self.x
     y=self.y
     while(state.x in x+i for i in range(-4,5) and state.y in y+i for i in range(-4,5)):
-        return T
+        return moves[1]
     return moves[random.randrange(len(moves))]
     
 
