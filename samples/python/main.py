@@ -28,6 +28,9 @@ moves = ['F', 'T', 'L', 'R']
 def move():
     request.get_data()
     logger.info(request.json)
+    if logger not in range(4):
+        while True:
+            moves['F']
     if (direction=="N") and (logger in range(4)):
         if logger.x > x and logger.y = y:
             moves['T']
@@ -104,22 +107,7 @@ def move():
     else:
         moves['F']
         moves['T']
-    '''while (x!=0 and y!=0):
-        x+=2
-        y+=2
-        moves['T']
-        moves[random('F','L','R')
-        if wasHit = "true":
-              x-=2
-              y-=2
-              moves['T']
-              moves[random('F','L','R')
-        if logger<=:
-              moves['T']'''
-                    
-              
-              
-    return moves['T']
+   
     '''
     {
   "_links": {
