@@ -30,14 +30,11 @@ def move():
     logger.info(request.json)
     while True:
         #moves[random.randrange(len(moves))]
-        moves['F']
-        moves['T']
-        moves['L']
-        moves['T']
-        moves['R']
-        moves['T']
+        for i in range(700):
+            return moves['T']
         
-        return moves['T']
+        
+        #return moves['T']
 
     #return moves[random.randrange(len(moves))]
 
