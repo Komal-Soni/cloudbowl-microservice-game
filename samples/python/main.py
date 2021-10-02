@@ -18,9 +18,7 @@ def move(self):
     logger.info(request.json)
     while y<0 and x>0 and x<dims[0] and -y < (dims[-1]):
         while(abs(state.y-y)<5 and abs(state.x-x)<5):
-            moves['T']
-            moves[random.randrange(len(moves))]
-      
+            return moves['T']
     return moves[random.randrange(len(moves))]
 
 
