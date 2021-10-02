@@ -28,6 +28,14 @@ moves = ['F', 'T', 'L', 'R']
 def move():
     request.get_data()
     logger.info(request.json)
+    if (direction=="N") and (logger in range(4)):
+        moves['T']
+    if (direction=="S") and (logger in range(4)):
+        moves['T']
+    if (direction=="E") and (logger in range(4)):
+        moves['T']
+    if (direction=="W") and (logger in range(4)):
+        moves['T']
     while (x!=0 and y!=0):
         x+=2
         y+=2
