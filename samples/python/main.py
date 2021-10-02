@@ -39,17 +39,18 @@ def move():
             moves['T']
         elif logger.x <x and logger.y=y:
             moves['R']
-            moves['L']
+            moves['R']
             moves['T']
         else:
             moves[random.randrange(len(moves))]
             moves['T']
     else:
         moves['F']
+        moves['T']
     if (direction=="S") and (logger in range(4)):
         if logger.x > x and logger.y = y:
             moves['L']
-            moves['R']
+            moves['L']
             moves['T']
         elif logger.x =x and logger.y>y:
             moves['R']
@@ -64,13 +65,46 @@ def move():
             moves['T']
     else:
         moves['F']
-    if (direction=="S") and (logger in range(4)):
-        moves['T']
+        MOVES['T']
     if (direction=="E") and (logger in range(4)):
+        if logger.x > x and logger.y = y:
+            moves['L']
+            moves['T']
+        elif logger.x =x and logger.y>y:
+            moves['T']
+        elif logger.x =x and logger.y<y:
+            moves['L']
+            moves['L']
+            moves['T']
+        elif logger.x < x and logger.y=y:
+            moves['L']
+            moves['T']
+        else:
+            moves[random.randrange(len(moves))]
+            moves['T']
+    else:
+        moves['F']
         moves['T']
     if (direction=="W") and (logger in range(4)):
+        if logger.x > x and logger.y = y:
+            moves['R']
+            moves['T']
+        elif logger.x =x and logger.y>y:
+            moves['R']
+            moves['R']
+            moves['T']
+        elif logger.x =x and logger.y<y:
+            moves['T']
+        elif logger.x < x and logger.y=y:
+            moves['R']
+            moves['T']
+        else:
+            moves[random.randrange(len(moves))]
+            moves['T']
+    else:
+        moves['F']
         moves['T']
-    while (x!=0 and y!=0):
+    '''while (x!=0 and y!=0):
         x+=2
         y+=2
         moves['T']
@@ -81,7 +115,7 @@ def move():
               moves['T']
               moves[random('F','L','R')
         if logger<=:
-              moves['T']
+              moves['T']'''
                     
               
               
