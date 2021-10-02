@@ -28,10 +28,8 @@ moves = ['F', 'T', 'L', 'R']
 def move():
     request.get_data()
     logger.info(request.json)
-    if logger in range(5):
-        return moves['T']
-    else:
-        return moves[random.randrange(len(moves))]
+    
+    return moves[random.randrange(len(moves))]
         
         
     '''
