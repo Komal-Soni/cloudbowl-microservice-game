@@ -12,11 +12,11 @@ moves = ['F', 'T', 'L', 'R']
 
 @app.route("/", methods=['POST'])
 def move(self):
-    x=self.x
-    y=self.y
     request.get_data()
     logger.info(request.json)
-    while y<0 and x>0 and x<dims[0] and -y < (dims[-1]):
+    x=self.x
+    y=self.y
+    while x,-y in dims:
         if (direction=="N") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x == x:
                 return moves['T']
