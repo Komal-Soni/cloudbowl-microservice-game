@@ -26,64 +26,60 @@ def move(self):
         if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
            if (d=="N"):
                 if(ey < y and ex == x):
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex > x):
                     d="E"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex < x):
                     d="W"
-                    i=1
+                    return moves[1]
                 elif (ey > y and ex == x):
                     d="S"
-                    i=1
+                    return moves[1]
                 else:
-                    i=0
+                    return moves[0]
            elif (d=="S"):
                 if(ey < y and ex == x):
                     d="N"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex > x):
                     d="E"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex < x):
                     d="W"
-                    i=1
+                    return moves[1]
                 elif (ey > y and ex == x):
-                    i=1
+                    return moves[1]
                 else:
-                    i=0
+                    return moves[0]
            elif (d=="E"):
                 if(ey < y and ex == x):
                     d="N"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex > x):
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex < x):
                     d="W"
-                    i=1
+                    return moves[1]
                 elif (ey > y and ex == x):
                     d="S"
-                    i=1
+                    return moves[1]
                 else:
-                    i=0
+                    return moves[0]
            elif (d=="W"):
                 if(ey < y and ex == x):
                     d="N"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex > x):
                     d="E"
-                    i=1
+                    return moves[1]
                 elif (ey == y and ex < x):
-                    i=1
+                    return moves[1]
                 elif (ey > y and ex == x):
                     d="S"
-                    i=1
+                    return moves[1]
                 else:
-                    i=0         
-           try:
-                return moves[i]
-           catch:
-                return moves[random.randrange(len(moves))]
+                    return moves[0]
         elif:
            if(edir=="N" and ex==x and ey<y):
                 try:
@@ -109,24 +105,23 @@ def move(self):
                 return moves[0]
         elif:       
            if d="S" and y==dims[-1] and x==0:
-                i=2
+                return moves[2]
            elif d="S" and y==dims[-1] and x==dims[0]:
-                i=3
+                return moves[2]
            elif d="E" and y==dims[-1] and x==dims[0]:
-                i=2
+                return moves[2]
            elif d="E" and y==0 and x==dims[0]:
-                i=3
+                return moves[3]
            elif d="W" and y==0 and x==0:
-                i=2
+                return moves[2]
            elif d="W" and y==dims[-1] and x==0:
-                i=3
+                return moves[3]
            elif d="N" and y==0 and x==0:
-                i=3
+                return moves[3]
            elif d="N" and y==0 and x==dims[0]:
-                i=2
+                return moves[2]
            else:
-                i=0
-           return moves[i]
+                return moves[0]
         else:
            return moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
