@@ -27,8 +27,8 @@ moves = ['F', 'T', 'L', 'R']
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    l=logger.info(request.json)
-    if l in range(5):
+    logger.info(request.json)
+    if logger in range(5):
         return moves['T']
     else:
         return moves[random.randrange(len(moves))]
