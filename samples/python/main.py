@@ -32,7 +32,12 @@ def move():
         if LOGLEVEL<=4:
             return moves['T']
         else:
-            return moves['F']
+            for i in range(LOGLEVEL):
+                return moves['F','T']
+            
+                
+                        
+            
             
         m=moves[random.randrange(len(moves))]
             if m='L':
