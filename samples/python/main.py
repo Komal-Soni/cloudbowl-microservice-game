@@ -38,6 +38,9 @@ def move():
               y-=2
               moves['T']
               moves[random('F','L','R')
+        if logger<=:
+              moves['T']
+                    
               
               
     return moves['T']
