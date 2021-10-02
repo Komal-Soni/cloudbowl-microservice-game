@@ -29,10 +29,17 @@ def move():
     request.get_data()
     logger.info(request.json)
     while (x!=0 and y!=0):
-        x*=2
-        y*=2
+        x+=2
+        y+=2
         moves['T']
         moves[random('F','L','R')
+        if wasHit = "true":
+              x-=2
+              y-=2
+              moves['T']
+              moves[random('F','L','R')
+              
+              
     return moves['T']
     '''
     {
