@@ -28,37 +28,33 @@ moves = ['F', 'T', 'L', 'R']
 def move():
     request.get_data()
     logger.info(request.json)
-    while True:
-        for i in range(10000):
-            moves['R']
-            moves['T']
-            moves['L']
-            moves['T']
-            moves['F']
-            moves['T']
+    while (x!=0 and y!=0):
+        x+=1
+        y+=1
+        moves['T']
+        moves[random('F','L','R')
     return moves['T']
-    '''while True:
-        if x==0:
-            return moves['R','F','T']
-        if y=0:
-            return moves['L','F','T']
-        if LOGLEVEL<=4:
-            return moves['T']
-        else:
-            for i in range(LOGLEVEL):
-                return moves['F','T']
-        m=moves[random.randrange(len(moves))]
-            if m='L':
-                return moves['T']
-            if m='R':
-                return moves['T']   
-            if m='F':
-                return moves['T']
-            else:
-                return moves['T']
-        
-        
-        #return moves['T']
+    '''
+    {
+  "_links": {
+    "self": {
+      "href": "https://YOUR_SERVICE_URL"
+    }
+  },
+  "arena": {
+    "dims": [4,3], // width, height
+    "state": {
+      "https://A_PLAYERS_URL": {
+        "x": 0, // zero-based x position, where 0 = left
+        "y": 0, // zero-based y position, where 0 = top
+        "direction": "N", // N = North, W = West, S = South, E = East
+        "wasHit": false,
+        "score": 0
+      }
+      ... // also you and the other players
+    }
+  }
+}
 
     #return moves[random.randrange(len(moves))]'''
 
