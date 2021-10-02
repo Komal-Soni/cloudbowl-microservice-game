@@ -19,46 +19,116 @@ def move(self):
     y=self.y
     d=self.direction
     json_object=json.load(logger.info(request.json))
-    ex=json_object[0]["state"]["x"]
-    ey=json_object[0]["state"]["y"]
-    edir=json_object[0]["state"]["direction"]
-    if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
-       i=1
-       return moves[i]
-    elif:
-       if(edir=="N" and ex==x and ey<y):
-          i=2       
-       elif(edir=="S" and ex==x and ey>y):
-          i=2
-       elif(edir=="E" and ex<x and ey=y):
-          i=2
-       elif(edir=="W" and ex>x and ey=y):
-          i=3
-       else:
-          i=0
-       return moves[i]
-    elif:       
-       if d="S" and y==dims[-1] and x==0:
-          i=2
-       elif d="S" and y==dims[-1] and x==dims[0]:
-          i=3
-       elif d="E" and y==dims[-1] and x==dims[0]:
-          i=2
-       elif d="E" and y==0 and x==dims[0]:
-          i=3
-       elif d="W" and y==0 and x==0:
-          i=2
-       elif d="W" and y==dims[-1] and x==0:
-          i=3
-       elif d="N" and y==0 and x==0:
-          i=3
-       elif d="N" and y==0 and x==dims[0]:
-          i=2
-       else:
-          i=0
-       return moves[i]
-    else:
-       return moves[random.randrange(len(moves))]
+    for key in json_object:
+        ex=json_object[0]["state"]["x"]
+        ey=json_object[0]["state"]["y"]
+        edir=json_object[0]["state"]["direction"]
+        if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
+           if (d=="N"):
+                if(ey < y and ex == x):
+                    i=1
+                elif (ey == y and ex > x):
+                    d="E"
+                    i=1
+                elif (ey == y and ex < x):
+                    d="W"
+                    i=1
+                elif (ey > y and ex == x):
+                    d="S"
+                    i=1
+                else:
+                    i=0
+           elif (d=="S"):
+                if(ey < y and ex == x):
+                    d="N"
+                    i=1
+                elif (ey == y and ex > x):
+                    d="E"
+                    i=1
+                elif (ey == y and ex < x):
+                    d="W"
+                    i=1
+                elif (ey > y and ex == x):
+                    i=1
+                else:
+                    i=0
+           elif (d=="E"):
+                if(ey < y and ex == x):
+                    d="N"
+                    i=1
+                elif (ey == y and ex > x):
+                    i=1
+                elif (ey == y and ex < x):
+                    d="W"
+                    i=1
+                elif (ey > y and ex == x):
+                    d="S"
+                    i=1
+                else:
+                    i=0
+           elif (d=="W"):
+                if(ey < y and ex == x):
+                    d="N"
+                    i=1
+                elif (ey == y and ex > x):
+                    d="E"
+                    i=1
+                elif (ey == y and ex < x):
+                    i=1
+                elif (ey > y and ex == x):
+                    d="S"
+                    i=1
+                else:
+                    i=0         
+           try:
+                return moves[i]
+           catch:
+                return moves[random.randrange(len(moves))]
+        elif:
+           if(edir=="N" and ex==x and ey<y):
+                try:
+                    return moves[2]
+                catch:
+                    return moves[3]
+           elif(edir=="S" and ex==x and ey>y):
+                try:
+                    return moves[2]
+                catch:
+                    return moves[3]
+           elif(edir=="E" and ex<x and ey=y):
+                try:
+                    return moves[2]
+                catch:
+                    return moves[3]
+           elif(edir=="W" and ex>x and ey=y):
+                try:
+                    return moves[2]
+                catch:
+                    return moves[3]
+           else:
+                return moves[0]
+        elif:       
+           if d="S" and y==dims[-1] and x==0:
+                i=2
+           elif d="S" and y==dims[-1] and x==dims[0]:
+                i=3
+           elif d="E" and y==dims[-1] and x==dims[0]:
+                i=2
+           elif d="E" and y==0 and x==dims[0]:
+                i=3
+           elif d="W" and y==0 and x==0:
+                i=2
+           elif d="W" and y==dims[-1] and x==0:
+                i=3
+           elif d="N" and y==0 and x==0:
+                i=3
+           elif d="N" and y==0 and x==dims[0]:
+                i=2
+           else:
+                i=0
+           return moves[i]
+        else:
+           return moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
   
