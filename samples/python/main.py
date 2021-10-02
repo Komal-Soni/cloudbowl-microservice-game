@@ -29,6 +29,22 @@ def move():
     request.get_data()
     logger.info(request.json)
     if (direction=="N") and (logger in range(4)):
+        if logger.x > x and logger.y = y:
+            moves['T']
+        elif logger.x =x and logger.y>y:
+            moves['R']
+            moves['T']
+        elif logger.x =x and logger.y<y:
+            moves['L']
+            moves['T']
+        elif logger.x =x and logger.y<y:
+            moves['R']
+            moves['L']
+            moves['T']
+        else:
+            moves[random.randrange(len(moves))]
+            moves['T']
+    if (direction=="N") and (logger in range(4)):
         moves['T']
     if (direction=="S") and (logger in range(4)):
         moves['T']
