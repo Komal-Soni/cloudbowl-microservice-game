@@ -19,58 +19,58 @@ def move(self):
     while x,-y in dims:
         if (direction=="N") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x == x:
-                return moves['T']
+                return moves[1]
             elif state.y==y and state.x>x:
                 direction=="E"
-                return moves['T']
+                return moves[1]
             elif state.y==y and state.x<x:
                 direction=="W"
-                return moves['T']
+                return moves[1]
             elif state.y <y and state.x==x:
                 direction=="S"
-                return moves['T']
+                return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
         elif (direction=="S") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x ==x:
                 direction=="N"
-                return moves['T']
+                return moves[1]
             elif state.y ==y and state.x>x:
                 direction=="E"
-                return moves['T']
+                return moves[1]
             elif state.y==y and state.x<x:
                 direction=="W"
-                return moves['T']
+                return moves[1]
             elif state.y < y and state.x==x:
-                return moves['T']
+                return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
         elif (direction=="E") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x = x:
                 direction=="N"
-                return moves['T']
+                return moves[1]
             elif state.y =y and state.x>x:
-                return moves['T']
+                return moves[1]
             elif state.y =y and state.x<x:
                 direction=="W"
-                return moves['T']
+                return moves[1]
             elif state.y < y and state.x=x:
                 direction=="S"
-                return moves['T']
+                return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
         elif (direction=="W") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x = x:
                 direction=="N"
-                return moves['T']
+                return moves[1]
             elif state.y=y and state.x>x:
                 direction=="E"
-                return moves['T']
+                return moves[1]
             elif state.y =y and state.x<x:
-                return moves['T']
+                return moves[1]
             elif state.y < y and state.x=x:
                 direction=="S"
-                return moves['T']
+                return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
         else:
