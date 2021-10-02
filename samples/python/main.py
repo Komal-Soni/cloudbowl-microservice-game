@@ -29,6 +29,11 @@ def move():
     request.get_data()
     logger.info(request.json)
     while True:
+        if LOGLEVEL<4:
+            return moves['T']
+        else:
+            return moves['F']
+            
         m=moves[random.randrange(len(moves))]
             if m='L':
                 return moves['T']
