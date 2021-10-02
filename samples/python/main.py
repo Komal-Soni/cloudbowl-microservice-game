@@ -21,14 +21,13 @@ def move(self):
             if state.y > y and state.x == x:
                 moves['T']
             elif state.y==y and state.x>x:
-                moves['R']
+                direction=="E"
                 moves['T']
             elif state.y==y and state.x<x:
-                moves['L']
+                direction=="W"
                 moves['T']
             elif state.y <y and state.x==x:
-                moves['R']
-                moves['R']
+                direction=="S"
                 moves['T']
             else:
                 moves['T']
@@ -38,14 +37,13 @@ def move(self):
             moves['T']
         if (direction=="S") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x ==x:
-                moves['L']
-                moves['L']
+                direction=="N"
                 moves['T']
             elif state.y ==y and state.x>x:
-                moves['R']
+                direction=="E"
                 moves['T']
             elif state.y==y and state.x<x:
-                moves['L']
+                direction=="W"
                 moves['T']
             elif state.y < y and state.x==x:
                 moves['T']
@@ -57,16 +55,15 @@ def move(self):
             moves['T']
         if (direction=="E") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x = x:
-                moves['L']
+                direction=="N"
                 moves['T']
             elif state.y =y and state.x>x:
                 moves['T']
             elif state.y =y and state.x<x:
-                moves['L']
-                moves['L']
+                direction=="W"
                 moves['T']
             elif state.y < y and state.x=x:
-                moves['L']
+                direction=="S"
                 moves['T']
             else:
                 moves['T']
@@ -76,16 +73,15 @@ def move(self):
             moves['T']
         if (direction=="W") and abs(state.y-y)<5 or abs(state.x-x)<5:
             if state.y > y and state.x = x:
-                moves['R']
+                direction=="N"
                 moves['T']
             elif state.y=y and state.x>x:
-                moves['R']
-                moves['R']
+                direction=="E"
                 moves['T']
             elif state.y =y and state.x<x:
                 moves['T']
             elif state.y < y and state.x=x:
-                moves['R']
+                direction=="S"
                 moves['T']
             else:
                 moves['T']
