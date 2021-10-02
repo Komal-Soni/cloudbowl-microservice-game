@@ -32,9 +32,11 @@ def move():
         m=moves[random.randrange(len(moves))]
             if m='L':
                 return moves['T']
-            if m='R'
+            if m='R':
                 return moves['T']   
-            if m='F'
+            if m='F':
+                return moves['T']
+            else:
                 return moves['T']
         
         
