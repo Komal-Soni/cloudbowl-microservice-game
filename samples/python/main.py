@@ -31,7 +31,12 @@ def move():
     while True:
         #moves[random.randrange(len(moves))]
         for i in range(700):
-            return moves['T']
+            if i%2==0:
+                return moves['L','T']
+            if i%3==0:
+                return moves['R','T']   
+            if if i%5==0:
+                return moves['F','T']
         
         
         #return moves['T']
