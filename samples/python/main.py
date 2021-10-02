@@ -10,17 +10,19 @@ app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
 
 @app.route("/", methods=['POST'])
-def move():
+def move(self):
+    x=self.x
+    y=self.y
     request.get_data()
     logger.info(request.json)
     while y<0 and x>0:
-        if direction="N" and logger.y>y:
+        if direction="N" and state.y>y:
             return moves['T']
-        if direction="S" and logger.y<y:
+        if direction="S" and state.y<y:
             return moves['T']
-        if direction="W" and logger.x<x:
+        if direction="W" and state.x<x:
             return moves['T']
-        if direction="E" and logger.x>x:
+        if direction="E" and state.x>x:
             return moves['T']
         else:
             return moves[random.randrange(len(moves))]
