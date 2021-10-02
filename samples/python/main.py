@@ -29,7 +29,7 @@ def move():
     request.get_data()
     logger.info(request.json)
     while True:
-        if LOGLEVEL<4:
+        if LOGLEVEL<=4:
             return moves['T']
         else:
             return moves['F']
