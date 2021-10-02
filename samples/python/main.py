@@ -28,7 +28,9 @@ moves = ['F', 'T', 'L', 'R']
 def move():
     request.get_data()
     logger.info(request.json)
-    return moves['T']
+    while True:
+        moves[random.randrange(len(moves))]
+        return moves['T']
 
     #return moves[random.randrange(len(moves))]
 
