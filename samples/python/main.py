@@ -16,8 +16,8 @@ def move(self):
     logger.info(request.json)
     x=self.x
     y=self.y
-    for x,-y in dims:
-        if (direction=="N") and abs(state.y-y)<5 or abs(state.x-x)<5:
+    while True:
+        if (direction=="N") and (abs(state.y-y)<5 or abs(state.x-x)<5):
             if state.y > y and state.x == x:
                 return moves[1]
             elif state.y==y and state.x>x:
@@ -31,7 +31,7 @@ def move(self):
                 return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
-        elif (direction=="S") and abs(state.y-y)<5 or abs(state.x-x)<5:
+        elif (direction=="S") and (abs(state.y-y)<5 or abs(state.x-x)<5):
             if state.y > y and state.x ==x:
                 direction=="N"
                 return moves[1]
@@ -45,7 +45,7 @@ def move(self):
                 return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
-        elif (direction=="E") and abs(state.y-y)<5 or abs(state.x-x)<5:
+        elif (direction=="E") and (abs(state.y-y)<5 or abs(state.x-x)<5):
             if state.y > y and state.x = x:
                 direction=="N"
                 return moves[1]
@@ -59,7 +59,7 @@ def move(self):
                 return moves[1]
             else:
                 return moves[random.randrange(len(moves))]
-        elif (direction=="W") and abs(state.y-y)<5 or abs(state.x-x)<5:
+        elif (direction=="W") and (abs(state.y-y)<5 or abs(state.x-x)<5):
             if state.y > y and state.x = x:
                 direction=="N"
                 return moves[1]
