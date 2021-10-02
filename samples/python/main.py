@@ -29,29 +29,7 @@ def move():
     request.get_data()
     l=logger.info(request.json)
     while True:
-        if direction = "E":
-            while (abs(x-l.x)<5 and (y==l.y)):
-            moves['T']
-            moves[random.randrange(len(moves))]
-            
-        
-        if direction = "W":
-            while (abs(x-l.x)<5 and (y==l.y)):
-            moves['T']
-            moves[random.randrange(len(moves))]
-        
-        if direction = "N":
-            while (abs(y-l.y)<5 and (x==l.x)):
-            moves['T']
-            moves[random.randrange(len(moves))]
-        
-        if direction = "S":
-            while (abs(y-l.y)<5 and (x==l.x)):
-            moves['T']
-            moves[random.randrange(len(moves))]
-    
-        else:
-            moves[random.randrange(len(moves))]
+        moves['T']
     return moves[random.randrange(len(moves))]
         
         
