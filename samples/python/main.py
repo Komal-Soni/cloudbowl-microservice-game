@@ -16,80 +16,80 @@ def move(self):
     y=self.y
     request.get_data()
     logger.info(request.json)
-    while y<0 and x>0 and x>dims[0] and -y < (dims[-1]):
+    while y<0 and x>0 and x<dims[0] and -y < (dims[-1]):
         if (direction=="N") and abs(state.y-y)<5 and abs(state.x-x)<5:
-            if state.x > x and state.y = y:
+            if state.y > y and state.x == x:
                 moves['T']
-            elif state.x =x and state.y>y:
+            elif state.y==y and state.x>x:
                 moves['R']
                 moves['T']
-            elif state.x =x and state.y<y:
+            elif state.y==y and state.x<x:
                 moves['L']
                 moves['T']
-            elif state.x <x and state.y=y:
+            elif state.y <y and state.x==x:
                 moves['R']
                 moves['R']
                 moves['T']
             else:
-                moves[random.randrange(len(moves))]
                 moves['T']
+                moves[random.randrange(len(moves))]
         else:
             moves['F']
             moves['T']
         if (direction=="S") and abs(state.y-y)<5 and abs(state.x-x)<5:
-            if state.x > x and state.y = y:
+            if state.y > y and state.x ==x:
                 moves['L']
                 moves['L']
                 moves['T']
-            elif state.x =x and state.y>y:
+            elif state.y ==y and state.x>x:
                 moves['R']
                 moves['T']
-            elif state.x =x and state.y<y:
+            elif state.y==y and state.x<x:
                 moves['L']
                 moves['T']
-            elif state.x < x and logger.y=y:
+            elif state.y < y and state.x==x:
                 moves['T']
             else:
-                moves[random.randrange(len(moves))]
                 moves['T']
+                moves[random.randrange(len(moves))]
         else:
             moves['F']
             moves['T']
         if (direction=="E") and abs(state.y-y)<5 and abs(state.x-x)<5:
-            if state.x > x and state.y = y:
+            if state.y > y and state.x = x:
                 moves['L']
                 moves['T']
-            elif state.x =x and state.y>y:
+            elif state.y =y and state.x>x:
                 moves['T']
-            elif state.x =x and state.y<y:
+            elif state.y =y and state.x<x:
                 moves['L']
                 moves['L']
                 moves['T']
-            elif state.x < x and state.y=y:
+            elif state.y < y and state.x=x:
                 moves['L']
                 moves['T']
             else:
-                moves[random.randrange(len(moves))]
                 moves['T']
+                moves[random.randrange(len(moves))]
         else:
             moves['F']
             moves['T']
         if (direction=="W") and abs(state.y-y)<5 and abs(state.x-x)<5:
-            if state.x > x and state.y = y:
+            if state.y > y and state.x = x:
                 moves['R']
                 moves['T']
-            elif state.x =x and state.y>y:
+            elif state.y=y and state.x>x:
                 moves['R']
                 moves['R']
                 moves['T']
-            elif state.x =x and state.y<y:
+            elif state.y =y and state.x<x:
                 moves['T']
-            elif state.x < x and state.y=y:
+            elif state.y < y and state.x=x:
                 moves['R']
                 moves['T']
             else:
-                moves[random.randrange(len(moves))]
                 moves['T']
+                moves[random.randrange(len(moves))]
         else:
             moves['F']
             moves['T']
