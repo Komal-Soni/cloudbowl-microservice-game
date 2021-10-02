@@ -15,17 +15,17 @@ def move(self):
     y=self.y
     request.get_data()
     logger.info(request.json)
-    while y<0 and x>0:
-        if direction="N" and state.y>y:
+    while y<0 and x>0 and x>dims[0] and -y < (dims[-1]):
+        while direction="N" and state.y>y:
             return moves['T']
-        if direction="S" and state.y<y:
+        while direction="S" and state.y<y:
             return moves['T']
-        if direction="W" and state.x<x:
+        while direction="W" and state.x<x:
             return moves['T']
-        if direction="E" and state.x>x:
+        while direction="E" and state.x>x:
             return moves['T']
-        else:
-            return moves[random.randrange(len(moves))]
+        
+        return moves[random.randrange(len(moves))]
         
         
     '''
