@@ -38,8 +38,7 @@ def move(self):
         distance = math.sqrt(distance_sq)
         while (distance<4 or distance==4) and (player in ns or player in s):
             try:
-                return "T"
-            catch:
+                
                 if (d=="N"):
                     if(ey < y and ex == x):
                         return 2*"T"
@@ -132,6 +131,9 @@ def move(self):
                             else:
                                 move="L"            
                             return move
+    
+            catch:
+                return 2*"T"
     return 2*moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
