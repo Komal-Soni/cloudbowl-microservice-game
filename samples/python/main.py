@@ -15,6 +15,7 @@ moves = ['F', 'T', 'L', 'R']
 def move(self):
     request.get_data()
     logger.info(request.json)
+    moves[random.randrange(len(moves))]
     x=0
     y=0
     d="N"
@@ -25,9 +26,9 @@ def move(self):
     yaxis=request.json["arena"]["dims"][1]
     score=request.json["arena"]["state"]["score"]
     if score<0:
-        return 2*"F"
+        return 2*"F" or moves[random.randrange(len(moves))]
     else:
-        return 2*"T"
+        return 2*"T" or moves[random.randrange(len(moves))]
     for player in request.json["arena"]["state"]:
         ex=request.json["arena"]["state"]["x"]
         ey=request.json["arena"]["state"]["y"]
@@ -105,6 +106,7 @@ def move(self):
                         for plyr in ns:
                             try:
                                 if wasHit==True:
+                                    
                                     if(edir=="N" and ex==x and ey<y):
                                         try:
                                             return "L"
@@ -153,6 +155,6 @@ def move(self):
     
             catch:
                 return 2*"T"
-    return 2*moves[random.randrange(len(moves))]           
+    return 2*"F" or 2*moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
