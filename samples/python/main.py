@@ -30,70 +30,70 @@ def move(self):
         try:
         if( y==ey && math.abs(x - ex)<=3):
             ns.append(player)
-            return "T"
+            return 2*"T"
     	if( x==ex && math.abs(y - ey)<=3):
     		s.append(player)
-            return "T"
+            return 2*"T"
         distance_sq = math.pow( math.abs(x-ex), 2) + math.pow(math.abs(y- ey), 2)
         distance = math.sqrt(distance_sq)
         while (distance<4 or distance==4):
             if (d=="N"):
                 if(ey < y and ex == x):
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex > x):
                     d="E"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex < x):
                     d="W"
-                    return "T"
+                    return 2*"T"
                 elif (ey > y and ex == x):
                     d="S"
-                    return "T"
+                    return 2*"T"
                 else:
-                    return "F"
+                    return 2*"F"
            elif (d=="S"):
                 if(ey < y and ex == x):
                     d="N"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex > x):
                     d="E"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex < x):
                     d="W"
-                    return "T"
+                    return 2*"T"
                 elif (ey > y and ex == x):
-                    return "T"
+                    return 2*"T"
                 else:
-                    return "F"
+                    return 2*"F"
            elif (d=="E"):
                 if(ey < y and ex == x):
                     d="N"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex > x):
                     d="W"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex < x):
-                    return "T"
+                    return 2*"T"
                 elif (ey > y and ex == x):
                     d="S"
-                    return "T"
+                    return 2*"T"
                 else:
-                    return "F"
+                    return 2*"F"
            elif (d=="W"):
                 if(ey < y and ex == x):
                     d="N"
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex > x):
                     
-                    return "T"
+                    return 2*"T"
                 elif (ey == y and ex < x):
                     d="E"
-                    return "T"
+                    return 2*"T"
                 elif (ey > y and ex == x):
                     d="S"
-                    return "T"
+                    return 2*"T"
             else:
-                return "F"
+                return 2*"F"
                 if d=="N":
                     for plyr in ns:
                         if d=="N" and plyr.x<x:
@@ -130,6 +130,6 @@ def move(self):
                             move="L"            
                         return move
         catch:
-            return moves[random.randrange(len(moves))]           
+            return 2*moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
