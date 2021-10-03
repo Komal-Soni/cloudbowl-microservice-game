@@ -27,7 +27,7 @@ def move(self):
         ex=request.json["arena"]["state"]["x"]
         ey=request.json["arena"]["state"]["y"]
         edir=request.json["arena"]["state"]["direction"]
-        try:
+        
         if( y==ey && math.abs(x - ex)<=3):
             ns.append(player)
             return 2*"T"
@@ -37,99 +37,101 @@ def move(self):
         distance_sq = math.pow( math.abs(x-ex), 2) + math.pow(math.abs(y- ey), 2)
         distance = math.sqrt(distance_sq)
         while (distance<4 or distance==4) and (player in ns or player in s):
-            if (d=="N"):
-                if(ey < y and ex == x):
-                    return 2*"T"
-                elif (ey == y and ex > x):
-                    d="E"
-                    return 2*"T"
-                elif (ey == y and ex < x):
-                    d="W"
-                    return 2*"T"
-                elif (ey > y and ex == x):
-                    d="S"
-                    return 2*"T"
-                else:
-                    return 2*"F"
-           elif (d=="S"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return 2*"T"
-                elif (ey == y and ex > x):
-                    d="E"
-                    return 2*"T"
-                elif (ey == y and ex < x):
-                    d="W"
-                    return 2*"T"
-                elif (ey > y and ex == x):
-                    return 2*"T"
-                else:
-                    return 2*"F"
-           elif (d=="E"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return 2*"T"
-                elif (ey == y and ex > x):
-                    d="W"
-                    return 2*"T"
-                elif (ey == y and ex < x):
-                    return 2*"T"
-                elif (ey > y and ex == x):
-                    d="S"
-                    return 2*"T"
-                else:
-                    return 2*"F"
-           elif (d=="W"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return 2*"T"
-                elif (ey == y and ex > x):
+            try:
+                return "T"
+            catch:
+                if (d=="N"):
+                    if(ey < y and ex == x):
+                        return 2*"T"
+                    elif (ey == y and ex > x):
+                        d="E"
+                        return 2*"T"
+                    elif (ey == y and ex < x):
+                        d="W"
+                        return 2*"T"
+                    elif (ey > y and ex == x):
+                        d="S"
+                        return 2*"T"
+                    else:
+                        return 2*"F"
+                elif (d=="S"):
+                    if(ey < y and ex == x):
+                        d="N"
+                        return 2*"T"
+                    elif (ey == y and ex > x):
+                        d="E"
+                        return 2*"T"
+                    elif (ey == y and ex < x):
+                        d="W"
+                        return 2*"T"
+                    elif (ey > y and ex == x):
+                        return 2*"T"
+                    else:
+                        return 2*"F"
+                elif (d=="E"):
+                    if(ey < y and ex == x):
+                        d="N"
+                        return 2*"T"
+                    elif (ey == y and ex > x):
+                        d="W"
+                        return 2*"T"
+                    elif (ey == y and ex < x):
+                        return 2*"T"
+                    elif (ey > y and ex == x):
+                        d="S"
+                        return 2*"T"
+                    else:
+                        return 2*"F"
+                elif (d=="W"):
+                    if(ey < y and ex == x):
+                        d="N"
+                        return 2*"T"
+                    elif (ey == y and ex > x):
                     
-                    return 2*"T"
-                elif (ey == y and ex < x):
-                    d="E"
-                    return 2*"T"
-                elif (ey > y and ex == x):
-                    d="S"
-                    return 2*"T"
-            else:
-                return 2*"F"
-                if d=="N":
-                    for plyr in ns:
-                        if d=="N" and plyr.x<x:
-                            move="L"
-                        if d=="N" and plyr.x>x:
-                            move="R"
-                        if d=="S" and plyr.x<x:
-                            move="R"
-                        if d=="S" and plyr.x>x:
-                            move="L"
-                        if move!="F":
+                        return 2*"T"
+                    elif (ey == y and ex < x):
+                        d="E"
+                        return 2*"T"
+                    elif (ey > y and ex == x):
+                        d="S"
+                        return 2*"T"
+                else:
+                    return 2*"F"
+                    if d=="N":
+                        for plyr in ns:
+                            if d=="N" and plyr.x<x:
+                                move="L"
+                            if d=="N" and plyr.x>x:
+                                move="R"
+                            if d=="S" and plyr.x<x:
+                                move="R"
+                            if d=="S" and plyr.x>x:
+                                move="L"
+                            if move!="F":
+                                return move
+                            else:
+                                return "F"
+                    if d=="S" and yaxis-y<4:
+                            if xaxis/2>x:
+                                move="L"
+                            else:
+                                move="R"
+                    if d=="N" and y<4:
+                            if xaxis/2>x:
+                                move="R"
+                            else:
+                                move="L"                            
+                    if d=="W" and x<4:
+                            if yaxis/2>y:
+                                move="L"
+                            else:
+                                move="R"            
+                    if d=="E" and xaxis-x<4:
+                            if yaxis/2>y:
+                                move="R"
+                            else:
+                                move="L"            
                             return move
-                        else:
-                            return "F"
-                if d=="S" and yaxis-y<4:
-                        if xaxis/2>x:
-                            move="L"
-                        else:
-                            move="R"
-                if d=="N" and y<4:
-                        if xaxis/2>x:
-                            move="R"
-                        else:
-                            move="L"                            
-                if d=="W" and x<4:
-                        if yaxis/2>y:
-                            move="L"
-                        else:
-                            move="R"            
-                if d=="E" and xaxis-x<4:
-                        if yaxis/2>y:
-                            move="R"
-                        else:
-                            move="L"            
-                        return move
-        catch:
-            return 2*moves[random.randrange(len(moves))]           
+    return 2*moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
