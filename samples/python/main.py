@@ -22,7 +22,10 @@ def move(self):
     ex=json_object[0]["state"]["x"]
     ey=json_object[0]["state"]["y"]
     edir=json_object[0]["state"]["direction"]
-    while True:
+    try:
+        while (ex not in range(x-4,x+5) and (ey not in range(y-4,y+5)):
+            return moves[0] 
+    catch:
         #attack start
         if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
            if (d=="N"):
@@ -80,7 +83,7 @@ def move(self):
                     d="S"
                     return moves[1]
             else:
-                try:
+                try wasHit==True:
                     if(edir=="N" and ex==x and ey<y):
                         try:
                             return moves[2]
