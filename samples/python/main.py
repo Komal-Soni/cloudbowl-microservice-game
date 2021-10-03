@@ -36,7 +36,7 @@ def move(self):
             return 2*"T"
         distance_sq = math.pow( math.abs(x-ex), 2) + math.pow(math.abs(y- ey), 2)
         distance = math.sqrt(distance_sq)
-        while (distance<4 or distance==4):
+        while (distance<4 or distance==4) and (player in ns or player in s):
             if (d=="N"):
                 if(ey < y and ex == x):
                     return 2*"T"
