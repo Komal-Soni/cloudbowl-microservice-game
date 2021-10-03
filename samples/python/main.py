@@ -98,18 +98,32 @@ def move(self):
                     return 2*"F"
                     if d=="N":
                         for plyr in ns:
-                            if d=="N" and plyr.x<x:
-                                move="L"
-                            if d=="N" and plyr.x>x:
-                                move="R"
-                            if d=="S" and plyr.x<x:
-                                move="R"
-                            if d=="S" and plyr.x>x:
-                                move="L"
-                            if move!="F":
-                                return move
-                            else:
-                                return "F"
+                            try:
+                                if wasHit==True:
+                                    if(edir=="N" and ex==x and ey<y):
+                                        try:
+                                            return "L"
+                                        catch:
+                                            return "R"
+                                    elif(edir=="S" and ex==x and ey>y):
+                                        try:
+                                            return "L"
+                                        catch:
+                                            return "R"
+                                    elif(edir=="E" and ex<x and ey=y):
+                                        try:
+                                            return "L"
+                                        catch:
+                                            return "R"
+                                    elif(edir=="W" and ex>x and ey=y):
+                                        try:
+                                            return "L"
+                                        catch:
+                                            return "R"
+                                    else:
+                                        return "F"
+                            catch:
+                                return 2*"T"
                     if d=="S" and yaxis-y<4:
                             if xaxis/2>x:
                                 move="L"
