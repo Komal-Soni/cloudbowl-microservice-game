@@ -25,9 +25,9 @@ def move(self):
     yaxis=request.json["arena"]["dims"][1]
     score=request.json["arena"]["state"]["score"]
     if score<0:
-        score=score*-1
+        return 2*"F"
     else:
-        score=score*2
+        return 2*"T"
     for player in request.json["arena"]["state"]:
         ex=request.json["arena"]["state"]["x"]
         ey=request.json["arena"]["state"]["y"]
