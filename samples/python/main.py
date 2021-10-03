@@ -27,7 +27,7 @@ def move(self):
         ex=request.json["arena"]["state"]["x"]
         ey=request.json["arena"]["state"]["y"]
         edir=request.json["arena"]["state"]["direction"]
-        
+        try:
         if( y==ey && math.abs(x - ex)<=3):
             ns.append(player)
             return "T"
@@ -70,9 +70,9 @@ def move(self):
                     d="N"
                     return "T"
                 elif (ey == y and ex > x):
+                    d="W"
                     return "T"
                 elif (ey == y and ex < x):
-                    d="W"
                     return "T"
                 elif (ey > y and ex == x):
                     d="S"
@@ -84,9 +84,10 @@ def move(self):
                     d="N"
                     return "T"
                 elif (ey == y and ex > x):
-                    d="E"
+                    
                     return "T"
                 elif (ey == y and ex < x):
+                    d="E"
                     return "T"
                 elif (ey > y and ex == x):
                     d="S"
@@ -126,6 +127,7 @@ def move(self):
                         else:
                             move="L"            
                         return move
-    return moves[random.randrange(len(moves))]           
+        catch:
+            return moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
