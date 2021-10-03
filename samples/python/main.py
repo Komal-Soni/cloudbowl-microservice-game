@@ -19,10 +19,11 @@ def move(self):
     y=self.y
     d=self.direction
     json_object=json.load(logger.info(request.json))
+    ex=json_object[0]["state"]["x"]
+    ey=json_object[0]["state"]["y"]
+    edir=json_object[0]["state"]["direction"]
     while True:
-        ex=json_object[0]["state"]["x"]
-        ey=json_object[0]["state"]["y"]
-        edir=json_object[0]["state"]["direction"]
+        #attack start
         if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
            if (d=="N"):
                 if(ey < y and ex == x):
@@ -78,31 +79,32 @@ def move(self):
                 elif (ey > y and ex == x):
                     d="S"
                     return moves[1]
-                else:
-                    return moves[random.randrange(len(moves))]
-        elif:
-           if(edir=="N" and ex==x and ey<y):
+            else:
                 try:
-                    return moves[2]
+                    if(edir=="N" and ex==x and ey<y):
+                        try:
+                            return moves[2]
+                        catch:
+                            return moves[3]
+                    elif(edir=="S" and ex==x and ey>y):
+                        try:
+                            return moves[2]
+                        catch:
+                            return moves[3]
+                    elif(edir=="E" and ex<x and ey=y):
+                        try:
+                            return moves[2]
+                        catch:
+                            return moves[3]
+                    elif(edir=="W" and ex>x and ey=y):
+                        try:
+                            return moves[2]
+                        catch:
+                            return moves[3]
+                    else:
+                        return moves[random.randrange(len(moves))]
                 catch:
-                    return moves[3]
-           elif(edir=="S" and ex==x and ey>y):
-                try:
-                    return moves[2]
-                catch:
-                    return moves[3]
-           elif(edir=="E" and ex<x and ey=y):
-                try:
-                    return moves[2]
-                catch:
-                    return moves[3]
-           elif(edir=="W" and ex>x and ey=y):
-                try:
-                    return moves[2]
-                catch:
-                    return moves[3]
-           else:
-                return moves[random.randrange(len(moves))]
+                        return moves[1]
         elif:       
            if d="S" and y==dims[-1] and x==0:
                 return moves[2]
@@ -121,7 +123,7 @@ def move(self):
            elif d="N" and y==0 and x==dims[0]:
                 return moves[2]
            else:
-                return moves[random.randrange(len(moves))]
+                return moves[1]
         else:
            return moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
