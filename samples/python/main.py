@@ -19,7 +19,7 @@ def move(self):
     y=self.y
     d=self.direction
     json_object=json.load(logger.info(request.json))
-    for key in json_object:
+    while True:
         ex=json_object[0]["state"]["x"]
         ey=json_object[0]["state"]["y"]
         edir=json_object[0]["state"]["direction"]
@@ -37,7 +37,7 @@ def move(self):
                     d="S"
                     return moves[1]
                 else:
-                    return moves[0]
+                    return moves[random.randrange(len(moves))]
            elif (d=="S"):
                 if(ey < y and ex == x):
                     d="N"
@@ -51,7 +51,7 @@ def move(self):
                 elif (ey > y and ex == x):
                     return moves[1]
                 else:
-                    return moves[0]
+                    return moves[random.randrange(len(moves))]
            elif (d=="E"):
                 if(ey < y and ex == x):
                     d="N"
@@ -65,7 +65,7 @@ def move(self):
                     d="S"
                     return moves[1]
                 else:
-                    return moves[0]
+                    return moves[random.randrange(len(moves))]
            elif (d=="W"):
                 if(ey < y and ex == x):
                     d="N"
@@ -79,7 +79,7 @@ def move(self):
                     d="S"
                     return moves[1]
                 else:
-                    return moves[0]
+                    return moves[random.randrange(len(moves))]
         elif:
            if(edir=="N" and ex==x and ey<y):
                 try:
@@ -102,7 +102,7 @@ def move(self):
                 catch:
                     return moves[3]
            else:
-                return moves[0]
+                return moves[random.randrange(len(moves))]
         elif:       
            if d="S" and y==dims[-1] and x==0:
                 return moves[2]
@@ -121,7 +121,7 @@ def move(self):
            elif d="N" and y==0 and x==dims[0]:
                 return moves[2]
            else:
-                return moves[0]
+                return moves[random.randrange(len(moves))]
         else:
            return moves[random.randrange(len(moves))]           
 if __name__ == "__main__":
