@@ -10,125 +10,73 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
+def my_data(all_data):
+    my_name = all_data['_links']['self']['href']
+    my_coord = all_data["arena"]["state"][my_name]
+
+    return my_coord, my_name
+
+def get_command(my_direction, my_coord_x, my_coord_y, arena_x, arena_y, all_user_data):
+    if my_direction == "N":
+        # X axis constant
+        # Y decreases as we move forward
+        if my_coord_y == 0:
+            return "R"
+        elif is_someone_present([my_coord_x], [my_coord_y-1, my_coord_y-2, my_coord_y-3], all_user_data):
+            return "T"
+        else:
+            return "F"
+
+    elif my_direction == "S":
+        # X axis constant
+        # Y increases as we move forward
+        if my_coord_y == arena_y - 1:
+            return "R"
+        elif is_someone_present([my_coord_x], [my_coord_y+1, my_coord_y+2, my_coord_y+3], all_user_data):
+            return "T"
+        else:
+            return "F"
+
+    elif my_direction == "E":
+        # Y axis constant
+        # X increases as we move forward
+        if my_coord_x == arena_x - 1:
+            return "R"
+        elif is_someone_present([my_coord_x+1, my_coord_x+2, my_coord_x+3], [my_coord_y], all_user_data):
+            return "T"
+        else:
+            return "F"
+
+    elif my_direction == "W":
+        # Y axis constant
+        # X decreases as we move forward
+        if my_coord_x == 0:
+            return "R"
+        elif is_someone_present([my_coord_x-1, my_coord_x-2, my_coord_x-3], [my_coord_y], all_user_data):
+            return "T"
+        else:
+            return "F"
+    else:
+        return moves[random.randrange(len(moves))]
+
+
+def is_someone_present(possible_points_x, possible_points_y, all_user_data):
+    for _each_user_name, each_user_stats in all_user_data.items():
+        if each_user_stats["x"] in possible_points_x and each_user_stats["y"] in possible_points_y:
+            return True
+    else:
+        return False
+
 
 @app.route("/", methods=['POST'])
-def move(self):
+def move():
     request.get_data()
     logger.info(request.json)
-    x=self.x
-    y=self.y
-    d=self.direction
-    json_object=json.load(logger.info(request.json))
-    ex=json_object[0]["state"]["x"]
-    ey=json_object[0]["state"]["y"]
-    edir=json_object[0]["state"]["direction"]
-    try:
-        while (ex not in range(x-4,x+5) and (ey not in range(y-4,y+5)):
-            return moves[0] 
-    catch:
-        #attack start
-        if((ex in range(x-4,x+5) or (ey in range(y-4,y+5))):
-           if (d=="N"):
-                if(ey < y and ex == x):
-                    return moves[1]
-                elif (ey == y and ex > x):
-                    d="E"
-                    return moves[1]
-                elif (ey == y and ex < x):
-                    d="W"
-                    return moves[1]
-                elif (ey > y and ex == x):
-                    d="S"
-                    return moves[1]
-                else:
-                    return moves[random.randrange(len(moves))]
-           elif (d=="S"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return moves[1]
-                elif (ey == y and ex > x):
-                    d="E"
-                    return moves[1]
-                elif (ey == y and ex < x):
-                    d="W"
-                    return moves[1]
-                elif (ey > y and ex == x):
-                    return moves[1]
-                else:
-                    return moves[random.randrange(len(moves))]
-           elif (d=="E"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return moves[1]
-                elif (ey == y and ex > x):
-                    return moves[1]
-                elif (ey == y and ex < x):
-                    d="W"
-                    return moves[1]
-                elif (ey > y and ex == x):
-                    d="S"
-                    return moves[1]
-                else:
-                    return moves[random.randrange(len(moves))]
-           elif (d=="W"):
-                if(ey < y and ex == x):
-                    d="N"
-                    return moves[1]
-                elif (ey == y and ex > x):
-                    d="E"
-                    return moves[1]
-                elif (ey == y and ex < x):
-                    return moves[1]
-                elif (ey > y and ex == x):
-                    d="S"
-                    return moves[1]
-            else:
-                try wasHit==True:
-                    if(edir=="N" and ex==x and ey<y):
-                        try:
-                            return moves[2]
-                        catch:
-                            return moves[3]
-                    elif(edir=="S" and ex==x and ey>y):
-                        try:
-                            return moves[2]
-                        catch:
-                            return moves[3]
-                    elif(edir=="E" and ex<x and ey=y):
-                        try:
-                            return moves[2]
-                        catch:
-                            return moves[3]
-                    elif(edir=="W" and ex>x and ey=y):
-                        try:
-                            return moves[2]
-                        catch:
-                            return moves[3]
-                    else:
-                        return moves[random.randrange(len(moves))]
-                catch:
-                        return moves[1]
-        elif:       
-           if d="S" and y==dims[-1] and x==0:
-                return moves[2]
-           elif d="S" and y==dims[-1] and x==dims[0]:
-                return moves[2]
-           elif d="E" and y==dims[-1] and x==dims[0]:
-                return moves[2]
-           elif d="E" and y==0 and x==dims[0]:
-                return moves[3]
-           elif d="W" and y==0 and x==0:
-                return moves[2]
-           elif d="W" and y==dims[-1] and x==0:
-                return moves[3]
-           elif d="N" and y==0 and x==0:
-                return moves[3]
-           elif d="N" and y==0 and x==dims[0]:
-                return moves[2]
-           else:
-                return moves[1]
-        else:
-           return moves[random.randrange(len(moves))]           
+    return moves[random.randrange(len(moves))]
+    my_coord, my_name = my_data(request.json)
+    arena_x, arena_y = request.json["arena"]["dims"]
+    return get_command(my_coord['direction'], my_coord['x'], my_coord['y'], arena_x, arena_y, request.json["arena"]["state"])
+
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
   
