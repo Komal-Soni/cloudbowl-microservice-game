@@ -50,7 +50,7 @@ def move(self):
                     d="S"
                     return "T"
                 else:
-                    return moves[random.randrange(len(moves))]
+                    return "F"
            elif (d=="S"):
                 if(ey < y and ex == x):
                     d="N"
@@ -64,7 +64,7 @@ def move(self):
                 elif (ey > y and ex == x):
                     return "T"
                 else:
-                    return moves[random.randrange(len(moves))]
+                    return "F"
            elif (d=="E"):
                 if(ey < y and ex == x):
                     d="N"
@@ -78,7 +78,7 @@ def move(self):
                     d="S"
                     return "T"
                 else:
-                    return moves[random.randrange(len(moves))]
+                    return "F"
            elif (d=="W"):
                 if(ey < y and ex == x):
                     d="N"
@@ -106,6 +106,8 @@ def move(self):
                             move="L"
                         if move!="F":
                             return move
+                        else:
+                            return "F"
                 if d=="S" and yaxis-y<4:
                         if xaxis/2>x:
                             move="L"
