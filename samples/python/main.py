@@ -27,23 +27,72 @@ def move(self):
         ex=request.json["arena"]["state"]["x"]
         ey=request.json["arena"]["state"]["y"]
         edir=request.json["arena"]["state"]["direction"]
+        
         if( y==ey && math.abs(x - ex)<=3):
             ns.append(player)
+            return "T"
     	if( x==ex && math.abs(y - ey)<=3):
     		s.append(player)
+            return "T"
         distance_sq = math.pow( math.abs(x-ex), 2) + math.pow(math.abs(y- ey), 2)
-//      distance = math.sqrt(distance_sq)
+        distance = math.sqrt(distance_sq)
         while (distance<4 or distance==4):
-            if(d=="E" and y=ey and ex-x<4 and ex>x):
-                return "T"
-            elif(d=="W" and y=ey and x-ex<4 and x>ex):
-                return "T"
-            elif(d=="N" and x=ex and y-ey<4 and y>ey):
-                return "T"
-            elif(d=="S" and x=ex and ey-y<4 and ey>y):
-                return "T"
+            if (d=="N"):
+                if(ey < y and ex == x):
+                    return "T"
+                elif (ey == y and ex > x):
+                    d="E"
+                    return "T"
+                elif (ey == y and ex < x):
+                    d="W"
+                    return "T"
+                elif (ey > y and ex == x):
+                    d="S"
+                    return "T"
+                else:
+                    return moves[random.randrange(len(moves))]
+           elif (d=="S"):
+                if(ey < y and ex == x):
+                    d="N"
+                    return "T"
+                elif (ey == y and ex > x):
+                    d="E"
+                    return "T"
+                elif (ey == y and ex < x):
+                    d="W"
+                    return "T"
+                elif (ey > y and ex == x):
+                    return "T"
+                else:
+                    return moves[random.randrange(len(moves))]
+           elif (d=="E"):
+                if(ey < y and ex == x):
+                    d="N"
+                    return "T"
+                elif (ey == y and ex > x):
+                    return "T"
+                elif (ey == y and ex < x):
+                    d="W"
+                    return "T"
+                elif (ey > y and ex == x):
+                    d="S"
+                    return "T"
+                else:
+                    return moves[random.randrange(len(moves))]
+           elif (d=="W"):
+                if(ey < y and ex == x):
+                    d="N"
+                    return "T"
+                elif (ey == y and ex > x):
+                    d="E"
+                    return "T"
+                elif (ey == y and ex < x):
+                    return "T"
+                elif (ey > y and ex == x):
+                    d="S"
+                    return "T"
             else:
-                move= "F"
+                return "F"
                 if d=="N":
                     for plyr in ns:
                         if d=="N" and plyr.x<x:
